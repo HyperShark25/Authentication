@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login Account Page</title>
+</head>
+<body>
+	<fieldset class="container">
+		{% for message in messages %}
+			<h2>{{message}}</h2>
+		{% endfor %}
+		<legend>Login Form</legend>
+		<form method="post">
+			{% csrf_token %}
+			<div class="email_field">
+				<label for="email">Email:</label>
+				<input id="email" type="email" name="email" required>
+			</div>
+			<div class="password_field">
+				<label for="password">Password:</label>
+				<input id="password" type="password" name="password" required>
+			</div>
+			<button type="submit">Confirm</button>
+		</form>
+		<a href="{% url 'register' %}">Register</a>
+	</fieldset>
+</body>
+</html>

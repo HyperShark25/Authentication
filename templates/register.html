@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registration Account Page</title>
+</head>
+<body>
+	<fieldset class="container">
+		{% for message in messages %}
+			{{message}}
+		{% endfor %}
+		<legend>Registration Form</legend>
+		<form method="post">
+			{% csrf_token %}
+			<div class="email_field">
+				<label for="email">Email:</label>
+				<input id="email" type="email" name="email" required>
+			</div>
+			<div class="username_field">
+				<label for="username">Username</label>
+				<input id="username" type="text" name="username" required>
+			</div>
+			<div class="first_name_field">
+				<label for="first_name">First Name:</label>
+				<input id="first_name" type="text" name="first_name" required>
+			</div>
+			<div class="last_name_field">
+				<label for="last_name">Last Name:</label>
+				<input id="last_name" type="text" name="last_name" required>
+			</div>
+			<div class="birthday_field">
+				<label for="date_of_birth">Birthday:</label>
+				<input id="date_of_birth" type="date" name="date_of_birth" required>
+			</div>
+			<div class="password_field">
+				<label for="password">Password:</label>
+				<input id="password" type="password" name="password" required>
+			</div>
+			<div class="confirm_password_field">
+				<label for="confirm_password">Confirm Password:</label>
+				<input id="confirm_password" type="password" name="confirm_password" required>
+			</div>
+			<button type="submit">Confirm</button>
+		</form>
+	</fieldset>
+	<a href="{% url 'login' %}">Login</a>
+</body>
+</html>
